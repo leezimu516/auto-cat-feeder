@@ -4,3 +4,29 @@ SDA-------pin A4
 SCL-------Pin A5
 
 ==============
+servo
+red----- +5v
+browm----negative
+orange---signal pin 9
+
+================
+buttom
+no------gnd
+com-----8
+
+==========
+lcd
+1.vss----gnd
+2.vdd----5v
+3.vo-----potentiometer: adjust the char light
+4.RS-----Pin 12
+5.RW------GND
+6.E-----Pin 11
+11.D4-----Pin 5
+12.D5-----Pin 4
+13.D6-----Pin 3
+14.D7-----Pin 2
+15.A------ 220 ohm 5v
+16.K-------gnd
+
+===========
