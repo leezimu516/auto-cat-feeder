@@ -27,11 +27,11 @@ volatile boolean up;
 const int PinCLK=2;                   // Used for generating interrupts using CLK signal
 const int PinDT=3;                    // Used for reading DT signal
 const int PinSW=4;                    // Used for the push button switch of the Rotary Encoder
-const int buttonPin = 8;             // the number of the pushbutton pin for manual feed 13
-int buttonState = 0;                  // variable for reading the manual feed pushbutton status
-int feed1hour = 22;                   // variables for feeding times and quantity
-int feed1minute = 01;
-int feed2hour = 21;
+const int buttonPin = 10;             // the number of the pushbutton pin for manual feed 13
+int buttonState = 1;                  // variable for reading the manual feed pushbutton status
+int feed1hour = 20;                   // variables for feeding times and quantity
+int feed1minute = 52;
+int feed2hour = 20;
 int feed2minute = 54;
 int feedQty = 4;
 int feedRate = 800;   //a pwm rate the triggers forward on the servo 75
@@ -53,16 +53,16 @@ void setup ()  {
    // set up the LCD's number of columns and rows: 
   lcd.begin(16, 2);
   // setup the Rotary encoder
- pinMode(PinCLK,INPUT);
- pinMode(PinDT,INPUT);  
- pinMode(PinSW,INPUT);
- pinMode(buttonPin, INPUT);
- digitalWrite(buttonPin,HIGH);
+ pinMode(PinCLK,INPUT_PULLUP);
+ pinMode(PinDT,INPUT_PULLUP);  
+ pinMode(PinSW,INPUT_PULLUP);
+ pinMode(buttonPin, INPUT_PULLUP);
+ //digitalWrite(buttonPin,HIGH);
  attachInterrupt (0,isr,FALLING);   // interrupt 0 is always connected to pin 2 on Arduino UNO
     lcd.setCursor(17,0);            
-    lcd.print("Roger Donoghue's");  // A bit of fun :-)
+    lcd.print("Kai Li's");  // A bit of fun :-)
     lcd.setCursor(17,1);
-    lcd.print("  Cat-O-Matic");
+    lcd.print(" Auto-cat-feeder");
      for (int positionCounter = 0; positionCounter < 17; positionCounter++) {
      // scroll one position left:
      lcd.scrollDisplayLeft(); 
@@ -118,7 +118,7 @@ void loop ()  {  //Main program loop - most things in here!
     //
     
 
-  if (RTC.read(tm)) {
+  /*if (RTC.read(tm)) {
     Serial.print("Ok, Time = ");
     print2digits(tm.Hour);
     Serial.write(':');
@@ -133,7 +133,7 @@ void loop ()  {  //Main program loop - most things in here!
     Serial.print(tmYearToCalendar(tm.Year));
     Serial.println();
     delay(1000);
-  }
+  }*/
     
     
 // MAIN BREAKOUT "IF" SECION BELOW THAT MONITORS THE PUSH BUTTON AND ENTERS PROGRAMMING IF IT'S PUSHED 
