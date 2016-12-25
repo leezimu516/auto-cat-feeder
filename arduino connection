@@ -35,6 +35,6 @@ facing 3 poles and knob upwards
 3 poles:
 left--- pin 3; middle---gnd; right----2
 2 poles:
-right---pin 4(sw); right----gnd
+left---pin 4(sw); right----gnd
 
 these pins in arduino should be pullup to high
